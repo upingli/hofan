@@ -1,7 +1,8 @@
 {
   "name": "upingli/hofan",
+  "type": "library",
   "description": "Hofan lavaral components.",
-  "license": "APACHE2",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Uping Li",
