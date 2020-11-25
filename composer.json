@@ -1,0 +1,27 @@
+{
+  "name": "upingli/hofan",
+  "description": "Hofan lavaral components.",
+  "license": "APACHE2",
+  "authors": [
+    {
+      "name": "Uping Li",
+      "email": "uping.li@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "ext-json": "*",
+    "php-amqplib/php-amqplib": "^2.12",
+    "vladimir-yuldashev/laravel-queue-rabbitmq": "^10.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "upingli\\hofan\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
