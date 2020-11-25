@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "upingli\\hofan\\": "src/"
+      "cn\\hofan\\": "src/"
     }
   },
   "minimum-stability": "dev",
