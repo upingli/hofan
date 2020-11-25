@@ -12,8 +12,11 @@ class OrderJsonJob extends JsonJob
 {
     protected function handle(string $command, $result)
     {
-        $method = implode('', explode('-', $command));
-        return $this->$method($result);
+        $method = implode('', explode('_', $command));
+        if(method_exists($this, $method))
+            return $this->$method($result);
+        else
+            return false;
     }
 
     /**
