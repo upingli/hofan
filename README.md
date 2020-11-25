@@ -55,3 +55,37 @@ Add connection to `config/queue.php`:
     // ...    
 ],
 ```
+
+Example for create order using rabbitmq queue:
+```php
+class TestController extends \Illuminate\Routing\Controller
+{
+    $order = new OrderTransit();
+    OrderQueueCall::createOrder($order);
+}
+```
+The result of createOrder() will be handled by cn\hofan\Queue\Jobs\OrderJsonJob. If you want to handle it yourself, there is a example.
+
+Define your job:
+```php
+class MyJob extends JsonJob
+{
+    protected function handle(string $command, $result)
+    {
+        if($command = "CREATE_ORDER_RESULT")
+        {
+            //Handle result for createOrder
+        }
+
+        return true;
+    }
+}
+```
+Then change the code in controller:
+```php
+class TestController extends \Illuminate\Routing\Controller
+{
+    $order = new OrderTransit();
+    OrderQueueCall::createOrder($order, MyJob::class);
+}
+```

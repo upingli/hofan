@@ -10,6 +10,12 @@ namespace cn\hofan\Queue\Jobs;
  */
 class OrderJsonJob extends JsonJob
 {
+    protected function handle(string $command, $result)
+    {
+        $method = implode('', explode('-', $command));
+        return $this->$method($result);
+    }
+
     /**
      * 创建订单成功后消息队列的通知
      *
