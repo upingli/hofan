@@ -13,7 +13,8 @@
     "php": "^7.3",
     "ext-json": "*",
     "php-amqplib/php-amqplib": "^2.12",
-    "vladimir-yuldashev/laravel-queue-rabbitmq": "^10.2"
+    "laravel/framework": "*",
+    "fakerphp/faker": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.3"

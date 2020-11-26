@@ -16,6 +16,10 @@ Before use this component, you must config it.
 Add connection to `config/queue.php`:
 
 ```php
+'default' => env('QUEUE_CONNECTION', 'sync'),
+//Not required, if you want to use a second conenection to avoid use the default one, add the below line. Otherwise, will use the default.
+'second'  => env('QUEUE_CONNECTION2', 'rabbitmq'),
+
 'connections' => [
     // ...
 

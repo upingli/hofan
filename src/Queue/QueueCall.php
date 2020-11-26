@@ -8,6 +8,12 @@ class QueueCall
 {
     protected static function call(Transit $transit, $job, $queue)
     {
-        Queue::push($job, $transit, $queue);
+        $default = config('queue.default');
+        $connection = config('queue.second');
+        if(empty($connection) || $connection == $default)
+            Queue::push($job, $transit, $queue);
+        else {
+            Queue::connection($connection)->push($job, $transit, $queue);
+        }
     }
 }
